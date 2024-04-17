@@ -96,7 +96,7 @@ app.get('/lessons/playlist/:slug', function (request, response) {
     fetchJson(apiUrl + '/tm_playlist/?filter={"slug":"' + request.params.slug + '"}'),
     fetchJson(apiUrl + '/tm_audio')
   ]).then(([storyData, languageData, playlistData, audioData]) => {
-    response.render('playlist', {
+    response.render('playlist-detail', {
       stories: storyData.data,
       languages: languageData.data,
       playlists: playlistData.data,

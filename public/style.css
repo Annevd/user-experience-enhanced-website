@@ -787,6 +787,7 @@ section {
 
         .playlist-bg {
             width: 100%;
+            height: auto;
         }
     
         a:first-of-type {

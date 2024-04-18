@@ -91,15 +91,16 @@
     <section class="liked-playlists">
         <h2>Liked playlists</h2>
         <% const likedPlaylists = playlists.filter(playlist => favorites[playlist.id]); %> <!-- Filter playlists to get only liked playlists -->
+        
+        <div>
         <% if (likedPlaylists.length > 0) { %> <!-- Check if there are any liked playlists -->
-            <ul>
                 <%- include('./partials/liked-playlist-item', { likedPlaylists: likedPlaylists }) %>
-            </ul>
         <% } else { %> <!-- If there are no liked playlists -->
             <div class="empty-state">
                 <p>You have no liked playlists yet...</p>
             </div>
         <% } %>
+        </div>
     </section>
 
     <!-- Suggested playlists -->

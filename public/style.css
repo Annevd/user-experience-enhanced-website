@@ -628,6 +628,7 @@ section {
     }
     to {
       opacity: 0;
+      display: none;
     }
   }
 
@@ -911,7 +912,7 @@ section {
             position: absolute;
             top: 0;
             right: 0;
-            width: 5%;
+            width: 3%;
             height: 100%;
             background: linear-gradient(270deg, rgba(48,28,100,1) 0%, rgba(0,0,0,0) 100%);
         }

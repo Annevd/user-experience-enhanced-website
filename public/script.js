@@ -75,4 +75,44 @@ nextButton.addEventListener('click', function() {
     })
 })
 
+let forms = document.querySelectorAll('form.like-form')
+
+forms.forEach(function(form) {
+
+
+
+    form.addEventListener('submit', function(event) {
+
+
+        console.log(form)
+
+        console.log(this.action)
+        console.log(this)
+
+        let data = new FormData(this)
+
+        data.append('enhanced', true)
+
+        fetch(this.action, {
+
+            method: this.method,
+
+            body: new URLSearchParams(data)
+
+        }).then(function(response) {
+
+            return response.text()
+
+        }).then(function(responseHTML) {
+
+            document.querySelector(".liked-playlists > div").innerHTML = responseHTML
+            console.log(responseHTML)
+
+        });
+
+        event.preventDefault()
+
+    })
+})
+
 })

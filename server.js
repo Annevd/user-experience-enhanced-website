@@ -27,7 +27,7 @@ app.use(express.static('public'))
 // Zorg dat werken met request data makkelijker wordt
 app.use(express.urlencoded({ extended: true }));
 
-let favorites = {}
+let favorites = []
 
 /*** Routes & data ***/
 
@@ -118,23 +118,44 @@ app.get('/profile', function (request, response) {
 
 // Maak een POST route voor de lessons pagina
 
-app.post('/:playlistId/like-or-unlike', function(request, response) {
-  const playlistId = Number(request.params.playlistId);
-  const action = request.body.action; // Retrieve the value of the 'actie' parameter from the form
-  let whatHappened = ''
+app.post('/lessons', function(request, response) {
+  
+  if (request.body.enhanced) {
+    const playlist = {
+      id: request.body.id,
+      image: request.body.image,
+      title: request.body.title,
+      slug: request.body.slug
+    }
+  
+    favorites.push(playlist)
+    console.log(favorites)
 
-  // Implement the logic to handle liking or unliking the playlist
-  if (action === 'like') {
-    // Handle 'like' action
-    favorites[playlistId] = true
-    whatHappened = 'liked'
+    response.render('partials/liked-playlist-item', {likedPlaylists: favorites})
+    response.render('partials/suggested-playlist-item', {likedPlaylists: favorites})
 
-  } else if (action === 'unlike') {
-    favorites[playlistId] = false
-    whatHappened = 'unliked'
+  } else {
+    const playlistId = Number(request.body.id);
+    const action = request.body.action; // Retrieve the value of the 'actie' parameter from the form
+    let whatHappened = ''
+  
+  
+    // Implement the logic to handle liking or unliking the playlist
+    // if (action === 'like') {
+      // Handle 'like' action
+      favorites[playlistId] = true
+      whatHappened = 'liked'
 
-  } 
+       // } else if (action === 'unlike') {
+  //   favorites[playlistId] = false
+  //   whatHappened = 'unliked'
+  // } 
+
+  // console.log(favorites)
+ 
+
   response.redirect(303, '/lessons?justUpdated=' + playlistId + '&whatHappened=' + whatHappened)
+  }
   })
 
 // 3. Start de webserver

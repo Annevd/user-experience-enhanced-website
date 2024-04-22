@@ -210,6 +210,20 @@ section {
     color: white;
 }
 
+/* Algemene styling settings */
+
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: var(--menu-layover);
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    transition: var(--transition-1);
+    z-index: 100; */
+
 /* Algemene styling story */
 
 .stories {
@@ -304,6 +318,48 @@ section {
     }
 
 }
+
+/* Loader */
+
+/* HTML: <div class="loader"></div> */
+
+.loader-container {
+    display: none;
+    width: 100vw;
+    height: 100dvh;
+    backdrop-filter: blur(3px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.loader {
+    margin: 0 auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 7rem;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side,#fff 90%,#0000);
+    background: 
+      var(--_g) 0%   50%,
+      var(--_g) 50%  50%,
+      var(--_g) 100% 50%;
+    background-size: calc(100%/3) 50%;
+    animation: l3 1s infinite linear;
+  }
+  @keyframes l3 {
+      20%{background-position:0%   0%, 50%  50%,100%  50%}
+      40%{background-position:0% 100%, 50%   0%,100%  50%}
+      60%{background-position:0%  50%, 50% 100%,100%   0%}
+      80%{background-position:0%  50%, 50%  50%,100% 100%}
+  }
+
+  .loader-container.show {
+    display: block;
+  }
 
 /*██      ███████ ███████ ███████  ██████  ███    ██ ███████ 
   ██      ██      ██      ██      ██    ██ ████   ██ ██      
@@ -798,7 +854,7 @@ section {
             top: 2rem;
         }
 
-        a:nth-of-type(2){
+        button {
             display: inline-block;
             position: absolute;
             right: 1rem;
@@ -873,8 +929,6 @@ section {
     }
 
 }
-
-
 
 /* Hovers & active states */
 

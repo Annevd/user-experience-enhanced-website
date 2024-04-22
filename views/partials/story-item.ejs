@@ -1,6 +1,6 @@
 <% stories.forEach(story => { %>
     <li class="story">
-        <img src="https://fdnd-agency.directus.app/assets/<%= story.image %>?fit=cover&width=100&height=100" alt="story" width="100" height="100" onerror="this.onerror=null;this.src='images/sixoclock.png';">
+        <img src="https://fdnd-agency.directus.app/assets/<%= story.image %>?fit=cover&width=100&height=100" alt="story" loading="lazy" width="100" height="100" onerror="this.onerror=null;this.src='images/sixoclock.png';">
     <div class="story-content">
         <div class="story-title">
             <h3><%- story.title %></h3>

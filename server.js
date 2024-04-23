@@ -50,10 +50,10 @@ app.get("/testing", function (request, response) {
 app.get("/lessons", function (request, response) {
   Promise.all([
     // Fetch data from all endpoints concurrently using Promise.all()
-    fetchJson(apiUrl + "/tm_story"), // Fetch data from the tm_story endpoint
-    fetchJson(apiUrl + "/tm_language"), // Fetch data from the tm_language endpoint
-    fetchJson(apiUrl + "/tm_playlist"), // Fetch data from the tm_playlist endpoint
-    fetchJson(apiUrl + "/tm_audio"), // Fetch data from the tm_audio endpoint
+    fetchJson(apiUrl + "/tm_story"),
+    fetchJson(apiUrl + "/tm_language"),
+    fetchJson(apiUrl + "/tm_playlist"),
+    fetchJson(apiUrl + "/tm_audio"),
     fetchJson(apiUrl + "/tm_likes"),
   ]).then(([storyData, languageData, playlistData, audioData, likeData]) => {
     // After all promises are resolved, this function will be executed with the fetched data
@@ -73,11 +73,11 @@ app.get("/lessons", function (request, response) {
     // Render the 'index.ejs' template and pass all fetched data to the view
     response.render("lessons", {
       favorites: favorites,
-      stories: storyData.data, // Pass fetched story data to the view under the 'stories' key
-      languages: languageData.data, // Pass fetched language data to the view under the 'languages' key
-      playlists: playlistData.data, // Pass fetched playlist data to the view under the 'playlists' key
+      stories: storyData.data,
+      languages: languageData.data,
+      playlists: playlistData.data,
       likeList: likeList,
-      audio: audioData.data, // Pass fetched audio data to the view under the 'audio' key
+      audio: audioData.data,
       justUpdated: request.query.justUpdated,
       whatHappened: request.query.whatHappened,
     });
@@ -87,10 +87,6 @@ app.get("/lessons", function (request, response) {
 // Maak een POST route voor de lessons pagina
 
 app.post("/lessons", function (request, response) {
-  // Hier zorgen dat je favorites bijgewerkt worden, afhankelijk van request.body..
-  // En daarna pas, afhankelijk van request.body.enhanced of niet een partial renderen of een redirect
-  // console.log(request.body);
-
   // Check of er op de unlike knop is geklikt?
   if (request.body.unlikeId) {
     console.log("DELETE id: " + request.body.unlikeId);
@@ -104,7 +100,7 @@ app.post("/lessons", function (request, response) {
         console.log("render partial");
         Promise.all([
           // Fetch data from all endpoints concurrently using Promise.all()
-          fetchJson(apiUrl + "/tm_playlist"), // Fetch data from the tm_playlist endpoint
+          fetchJson(apiUrl + "/tm_playlist"),
           fetchJson(apiUrl + "/tm_likes"),
         ]).then(([playlistData, likeData]) => {
           // After all promises are resolved, this function will be executed with the fetched data

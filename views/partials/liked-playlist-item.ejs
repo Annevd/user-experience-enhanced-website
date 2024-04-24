@@ -3,8 +3,14 @@
     <% likeList.forEach(playlist=> { %> <!-- Loop through each liked playlist -->
         <li class="playlist">
             <figure>
-                <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" height="150" alt="playlist"
-                    loading="lazy" onerror="this.onerror=null;this.src='images/sixoclock.png';">
+                <picture>
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image %>?format=avif"
+                        type="image/avif">
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image %>?format=webp"
+                        type="image/webp">
+                    <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" height="150" alt="playlist"
+                        loading="lazy" onerror="this.onerror=null;this.src='images/sixoclock.png';" height="150">
+                </picture>
                 <figcaption>
                     <%= playlist.title %>
                 </figcaption>

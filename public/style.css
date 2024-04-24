@@ -228,16 +228,43 @@ section {
 
 /* Algemene styling settings */
 
-/* display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background: var(--menu-layover);
-    position: fixed;
-    top: -100%;
-    width: 100%;
-    transition: var(--transition-1);
-    z-index: 100; */
+.playlist-settings-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: calc(var(--spacing) * 4);
+  height: 100%;
+  background: #292929;
+  position: fixed;
+  /* top: -100%; */
+  width: 100%;
+  transition: var(--transition-1);
+  z-index: 100;
+}
+
+.playlist-settings-container li {
+  margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 6);
+}
+
+.playlist-settings-container button {
+  display: flex;
+  align-items: center;
+}
+
+.playlist-settings-container span {
+  color: white;
+  margin-left: calc(var(--spacing) * 4);
+}
+
+.close-settings {
+  position: absolute;
+  top: 5rem;
+  right: 1rem;
+}
+
+.close-settings svg path {
+  stroke: white;
+}
 
 /* Algemene styling story */
 
@@ -265,7 +292,7 @@ section {
   scroll-snap-align: center;
 }
 
-.story img:first-child {
+.story picture img {
   border-radius: var(--radius-3);
   width: 5rem;
   height: 5rem;

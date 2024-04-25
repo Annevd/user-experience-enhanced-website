@@ -236,7 +236,7 @@ section {
   height: 100%;
   background: #292929;
   position: fixed;
-  /* top: -100%; */
+  top: -100%;
   width: 100%;
   transition: var(--transition-1);
   z-index: 100;
@@ -260,6 +260,10 @@ section {
   position: absolute;
   top: 5rem;
   right: 1rem;
+}
+
+.open-settings {
+  top: 0rem;
 }
 
 .close-settings svg path {
@@ -441,7 +445,8 @@ section {
     padding: 0.5rem 1rem;
     width: 18rem;
     border-radius: var(--radius-2);
-    background: var(--detail-2);
+    background: var(--detail-1);
+    border: 2px solid #8571ff;
     color: white;
   }
 
@@ -1060,6 +1065,15 @@ section {
       max-width: 45rem;
       margin: 0 auto;
     }
+  }
+
+  .playlist-settings-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .playlist-settings-container li {
+    margin: calc(var(--spacing) * 10) 0 calc(var(--spacing) * 10);
   }
 }
 

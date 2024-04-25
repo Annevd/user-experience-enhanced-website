@@ -61,6 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Carrousel
+
   const prevButton = document.querySelector(".pagination button:first-of-type");
   const nextButton = document.querySelector(
     ".pagination button:nth-of-type(2)"
@@ -81,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
       behavior: "smooth",
     });
   });
+
+  // Client side fetch
 
   let forms = document.querySelectorAll("form.like-form");
   const loader = document.querySelector(".loader-container");
@@ -103,10 +107,26 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (responseHTML) {
           document.querySelector(".liked-playlists > div").innerHTML =
             responseHTML;
-          console.log(responseHTML);
+          // console.log(responseHTML);
           loader.classList.remove("show");
         });
       event.preventDefault();
     });
   });
+});
+
+// Settings
+
+const openSettingsButton = document.querySelector(".playlist-head button");
+const closeSettingsButton = document.querySelector("button.close-settings");
+const settingsShown = document.querySelector(".playlist-settings-container");
+
+openSettingsButton.addEventListener("click", function () {
+  document.documentElement.classList.add("no-scroll");
+  settingsShown.classList.add("open-settings");
+});
+
+closeSettingsButton.addEventListener("click", function () {
+  document.documentElement.classList.remove("no-scroll");
+  settingsShown.classList.remove("open-settings");
 });

@@ -57,7 +57,6 @@ app.get("/lessons", function (request, response) {
     fetchJson(apiUrl + "/tm_likes"),
   ]).then(([storyData, languageData, playlistData, audioData, likeData]) => {
     // After all promises are resolved, this function will be executed with the fetched data
-
     // Maak een lijst met alle liked playlists op basis van de tm_likes tabel
     let likeList = playlistData.data.filter((playlist) => {
       return likeData.data.find((like) => like.playlist === playlist.id);

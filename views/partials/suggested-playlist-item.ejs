@@ -3,12 +3,16 @@
     <li class="playlist">
         <figure>
             <picture>
-                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image %>?format=avif"
-                    type="image/avif">
-                <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image %>?format=webp"
-                    type="image/webp">
-                <img src="https://fdnd-agency.directus.app/assets/<%= playlist.image %>" height="150" alt="playlist"
-                    loading="lazy" onerror="this.onerror=null;this.src='images/sixoclock.png';" height="150">
+                <% if (playlist.image !=null) { %>
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image %>?format=avif"
+                        type="image/avif">
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= playlist.image %>?format=webp"
+                        type="image/webp">
+                    <img src=" https://fdnd-agency.directus.app/assets/<%=playlist.image %>" height="150"
+                        alt="playlist">
+                    <% } else { %>
+                        <img src="images/sixoclock.png" height="150">
+                        <% } %>
             </picture>
             <figcaption>
                 <%= playlist.title %>

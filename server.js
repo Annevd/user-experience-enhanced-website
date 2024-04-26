@@ -86,9 +86,8 @@ app.get("/lessons", function (request, response) {
 // Maak een POST route voor de lessons pagina
 
 app.post("/lessons", function (request, response) {
-  // Check of er op de unlike knop is geklikt?
+  // Check of er op de unlike knop is geklikt
   if (request.body.unlikeId) {
-    console.log("DELETE id: " + request.body.unlikeId);
     fetch(apiUrl + "/tm_likes/" + request.body.unlikeId, {
       method: "DELETE",
       headers: {
@@ -96,7 +95,6 @@ app.post("/lessons", function (request, response) {
       },
     }).then((deleteResponse) => {
       if (request.body.enhanced) {
-        console.log("render partial");
         Promise.all([
           // Fetch data from all endpoints concurrently using Promise.all()
           fetchJson(apiUrl + "/tm_playlist"),
@@ -127,7 +125,6 @@ app.post("/lessons", function (request, response) {
     });
     // Er is op de like knop geklikt
   } else {
-    console.log("POST id: " + request.body.likeId);
     fetch(apiUrl + "/tm_likes", {
       method: "POST",
       body: JSON.stringify({
@@ -140,7 +137,6 @@ app.post("/lessons", function (request, response) {
     }).then((postResponse) => {
       // Is gevraagd om een enhanced versie?
       if (request.body.enhanced) {
-        console.log("render partial");
         Promise.all([
           // Fetch data from all endpoints concurrently using Promise.all()
           fetchJson(apiUrl + "/tm_playlist"), // Fetch data from the tm_playlist endpoint

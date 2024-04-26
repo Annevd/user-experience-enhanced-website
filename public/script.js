@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
       loader.classList.add("show");
       // console.log(form)
-      // console.log(this.action)
+      // console.log(this.action);
       // console.log(this)
       let data = new FormData(this);
       data.append("enhanced", true);

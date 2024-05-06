@@ -29,6 +29,8 @@ Door het voorkomen van Cumulative Layout Shifts en door Responsive Images toe te
 <img height= 500 width= 250 src="https://github.com/Annevd/the-web-is-for-everyone-interactive-functionality/assets/144004647/498bd02e-7882-4395-b0d3-2023aa702468">
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
+[Livelink](https://user-experience-enhanced-website-8y8l.onrender.com)
+
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 Om deze pagina live te bekijken kan je klikken op de livelink in de About sectie van deze repository.

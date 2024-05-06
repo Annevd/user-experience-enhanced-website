@@ -85,7 +85,7 @@ app.get("/lessons", function (request, response) {
 
 // Maak een POST route voor de lessons pagina
 
-app.post("/lessons", function (request, response) {
+app.post("/lessons", function(request, response) {
   // Check of er op de unlike knop is geklikt
   if (request.body.unlikeId) {
     fetch(apiUrl + "/tm_likes/" + request.body.unlikeId, {
@@ -93,22 +93,24 @@ app.post("/lessons", function (request, response) {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    }).then((deleteResponse) => {
+    }).then(function(deleteResponse) {
       if (request.body.enhanced) {
         Promise.all([
           // Fetch data from all endpoints concurrently using Promise.all()
           fetchJson(apiUrl + "/tm_playlist"),
           fetchJson(apiUrl + "/tm_likes"),
-        ]).then(([playlistData, likeData]) => {
+        ]).then(function([playlistData, likeData]) {
           // After all promises are resolved, this function will be executed with the fetched data
-          const likeList = playlistData.data.filter((playlist) => {
-            return likeData.data.find((like) => like.playlist === playlist.id);
+          const likeList = playlistData.data.filter(function(playlist) {
+            return likeData.data.find(function(like) {
+              return like.playlist === playlist.id;
+            });
           });
           // Voeg het id uit de tm_likes tabel toe aan de lijst met liked playlists, nodig voor delete
-          likeList.map((playlist) => {
-            playlist.likeId = likeData.data.find(
-              (like) => like.playlist === playlist.id
-            ).id;
+          likeList.map(function(playlist) {
+            playlist.likeId = likeData.data.find(function(like) {
+              return like.playlist === playlist.id;
+            }).id;
             return playlist;
           });
           // Haal playList data op
@@ -134,26 +136,27 @@ app.post("/lessons", function (request, response) {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    }).then((postResponse) => {
+    }).then(function(postResponse) {
       // Is gevraagd om een enhanced versie?
       if (request.body.enhanced) {
         Promise.all([
           // Fetch data from all endpoints concurrently using Promise.all()
           fetchJson(apiUrl + "/tm_playlist"), // Fetch data from the tm_playlist endpoint
           fetchJson(apiUrl + "/tm_likes"),
-        ]).then(([playlistData, likeData]) => {
+        ]).then(function([playlistData, likeData]) {
           // After all promises are resolved, this function will be executed with the fetched data
-          const likeList = playlistData.data.filter((playlist) => {
-            return likeData.data.find((like) => like.playlist === playlist.id);
+          const likeList = playlistData.data.filter(function(playlist) {
+            return likeData.data.find(function(like) {
+              return like.playlist === playlist.id;
+            });
           });
           // Voeg het id uit de tm_likes tabel toe aan de lijst met liked playlists, nodig voor delete
-          likeList.map((playlist) => {
-            playlist.likeId = likeData.data.find(
-              (like) => like.playlist === playlist.id
-            ).id;
+          likeList.map(function(playlist) {
+            playlist.likeId = likeData.data.find(function(like) {
+              return like.playlist === playlist.id;
+            }).id;
             return playlist;
           });
-
           // Haal playList data op
           response.render("partials/liked-playlist-item", {
             likeList: likeList,

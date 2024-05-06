@@ -54,6 +54,8 @@ Ook zijn we bezig geweest met verschillende metrics om de performance van onze w
 
 Daarnaast heb ik een loading state toegevoegd aan mijn interactie van de like button, zodat de gebruiker feedback krijgt dat de pagina aan het laden is en niet in ontwetendheid zit.
 
+Door gebruik te maken van een `if statement` met `document.startViewTransition` zorg ik ervoor dat de playlist smooth in beeld komen met een transitie. Als dit niet werkt wordt de originele interactie gewoon uitgevoerd zonder transitie.
+
 Tot slot heb ik gebruik gemaakt van Responsive Images, waar je gebruikt maakt van een `<picture>` en `<source srcset="" type="image/'type'">` om afbeeldingen te optimaliseren wanneer dat mogelijk is. Doordat de afbeeldingen kleiner worden zal je website sneller laden en zal dus de performance score hoger worden.
 
 ## Installatie

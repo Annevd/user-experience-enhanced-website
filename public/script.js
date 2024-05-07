@@ -10,7 +10,7 @@ const lastMenuLink = menuLinks[menuLinks.length - 1];
 const prevButton = document.querySelector(".pagination button:first-of-type");
 const nextButton = document.querySelector(".pagination button:nth-of-type(2)");
 const carrousel = document.querySelector(".lessons .stories ul");
-const storyWidth = document.querySelector(".story").offsetWidth;
+const storyWidth = document.querySelector(".story");
 
 let forms = document.querySelectorAll("form.like-form");
 const loader = document.querySelector(".loader-container");
@@ -22,7 +22,6 @@ const settingsShown = document.querySelector(".playlist-settings-container");
 // Code Logic
 
 document.addEventListener("DOMContentLoaded", function () {
-
   // Menu
 
   menuLinks.forEach((link) => link.setAttribute("tabindex", "-1"));
@@ -69,20 +68,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Carrousel
-
-  prevButton.addEventListener("click", function () {
-    carrousel.scrollBy({
-      left: -storyWidth,
-      behavior: "smooth",
+  if (carrousel) {
+    prevButton.addEventListener("click", function () {
+      carrousel.scrollBy({
+        left: -storyWidth.offsetWidth,
+        behavior: "smooth",
+      });
     });
-  });
-
-  nextButton.addEventListener("click", function () {
-    carrousel.scrollBy({
-      left: storyWidth,
-      behavior: "smooth",
+  
+    nextButton.addEventListener("click", function () {
+      carrousel.scrollBy({
+        left: storyWidth.offsetWidth,
+        behavior: "smooth",
+      });
     });
-  });
+  }
 
   // Client-side Fetch
 
@@ -128,12 +128,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Settings
 
-openSettingsButton.addEventListener("click", function () {
-  document.documentElement.classList.add("no-scroll");
-  settingsShown.classList.add("open-settings");
-});
-
-closeSettingsButton.addEventListener("click", function () {
-  document.documentElement.classList.remove("no-scroll");
-  settingsShown.classList.remove("open-settings");
-});
+if (openSettingsButton) {
+  openSettingsButton.addEventListener("click", function () {
+    document.documentElement.classList.add("no-scroll");
+    settingsShown.classList.add("open-settings");
+  });
+  
+  closeSettingsButton.addEventListener("click", function () {
+    document.documentElement.classList.remove("no-scroll");
+    settingsShown.classList.remove("open-settings");
+  });
+}

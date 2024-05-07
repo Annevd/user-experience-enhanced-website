@@ -22,17 +22,17 @@ Ik heb de like interactie van de vorige sprint enhanced met client-side Javascri
 Door het voorkomen van Cumulative Layout Shifts en door Responsive Images toe te passen heb ik de performance van de website verbeterd.
 
 <!-- Voeg een mooie poster visual toe 📸 -->
-
-<img height= 500 width= 250 src="https://github.com/Annevd/the-web-is-for-everyone-interactive-functionality/assets/144004647/b5aa2903-80ff-4444-b36a-26928aeac831">
+<img height= 500 width= 250 src="https://github.com/Annevd/user-experience-enhanced-website/assets/144004647/ee2b5c35-9098-407e-a097-872af694f213">
 <img height= 500 width= 250 src="https://github.com/Annevd/the-web-is-for-everyone-interactive-functionality/assets/144004647/c656bf47-f226-4ef5-9366-f8f1183d2d1c">
 <img height= 500 width= 250 src="https://github.com/Annevd/the-web-is-for-everyone-interactive-functionality/assets/144004647/539a068a-49b8-4393-b351-e5af505e5490">
 <img height= 500 width= 250 src="https://github.com/Annevd/the-web-is-for-everyone-interactive-functionality/assets/144004647/498bd02e-7882-4395-b0d3-2023aa702468">
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
+[Livelink](https://user-experience-enhanced-website-8y8l.onrender.com)
+
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 Om deze pagina live te bekijken kan je klikken op de livelink in de About sectie van deze repository.
-Omdat we zijn begonnen met het bouwen van de lessons pagina in plaats van de homepage, dien je eerst in het menu rechtsonder op deze pagina te klikken.
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->

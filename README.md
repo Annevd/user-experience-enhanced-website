@@ -33,7 +33,6 @@ Door het voorkomen van Cumulative Layout Shifts en door Responsive Images toe te
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 Om deze pagina live te bekijken kan je klikken op de livelink in de About sectie van deze repository.
-Omdat we zijn begonnen met het bouwen van de lessons pagina in plaats van de homepage, dien je eerst in het menu rechtsonder op deze pagina te klikken.
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
